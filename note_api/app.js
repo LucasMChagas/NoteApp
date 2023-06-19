@@ -19,5 +19,4 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
 
-console.log('Criado por Lucas Miranda')
 module.exports = app;
