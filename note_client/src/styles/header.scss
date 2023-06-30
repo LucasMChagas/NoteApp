@@ -1,0 +1,33 @@
+@import "./custom_colors";
+
+.navbar {
+ height:70px;
+ border-bottom: 1px solid $custom-purple;
+ 
+
+    .navbar-brand{
+        .navbar-item{
+            img {                
+                max-height:65px;
+                width:245px;
+                margin-top:0px;
+                // border: 1px solid rgb(167, 24, 24);
+
+            }
+        }
+    }
+}
+.buttons{
+    a{
+        color: $custom-purple;
+        border: 1px solid $custom-purple;
+        
+        strong{
+            color: $custom-purple;
+        }
+    }
+    :hover{
+        color: white;
+        background-color: $custom-purple;
+    }
+}

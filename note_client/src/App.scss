@@ -1,0 +1,11 @@
+@charset 'utf-8';
+@import "../node_modules/bulma/sass/utilities/functions.sass";
+@import "./styles/custom_colors.scss";
+
+$custom-colors: (
+  "custom-purple": ($custom-purple),
+  "custom-purple-darker": ($custom-purple-darker)
+);
+
+// Import Bulma styles
+@import "../node_modules/bulma/bulma.sass";
