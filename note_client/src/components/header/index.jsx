@@ -35,10 +35,10 @@ function Header() {
                 <div className="navbar-end">
                     <div className="navbar-item">
                         <div className="buttons">
-                            <a className="button">
+                            <Link to="/register" className="button is-white has-text-primary">
                                 <strong>Register</strong>
-                            </a>
-                            <a className="button">Login</a>
+                            </Link>
+                            <a className="button is-primary is-outlined">Login</a>
                         </div>
                     </div>
                 </div>

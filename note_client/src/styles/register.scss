@@ -1,0 +1,14 @@
+@import "./custom_colors";
+
+section{
+    background-color: $custom-purple;
+    height: calc(100% - 50px);
+}
+
+.card{
+    padding: 3%;
+}
+.ca{
+    border: 1px solid transparent;
+    padding-bottom: 20px;
+}

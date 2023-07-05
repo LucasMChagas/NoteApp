@@ -7,5 +7,8 @@ $custom-colors: (
   "custom-purple-darker": ($custom-purple-darker)
 );
 
+$primary: $custom-purple;
+$link: $custom-purple-darker;
+
 // Import Bulma styles
 @import "../node_modules/bulma/bulma.sass";
