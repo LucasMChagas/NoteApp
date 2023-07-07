@@ -4,26 +4,32 @@ import { useNavigate } from "react-router-dom";
 import UsersService from "../../services/users";
 
 
-function FormRegister() {
-    const navigate = useNavigate();
-    const [name, setName] = useState("");
+function FormLogin() { 
+    const navigate = useNavigate();   
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [redirectToLogin, setRedirectToLogin] = useState(false);
+    const [redirectToRegister, setRedirectToRegister] = useState(false);
+    const [redirectToNotes, setRedirectToNotes] = useState(false);
     const [error, setError] = useState(false);
 
     const handleSubmit = async (evt)=>{
         evt.preventDefault();
         try {
-            const user = await UsersService.register({name: name, email: email, password: password});
-            setRedirectToLogin(true);
+            const user = await UsersService.login({email: email, password: password});
+            setRedirectToNotes(true);
         } catch (error) {
             setError(true);
         }
+    }    
+    
+    if (redirectToRegister === true){
+         return navigate("/register");
+    }
+    if (redirectToNotes === true) {
+        return navigate("/notes")
     }
 
-    if (redirectToLogin == true)
-        return navigate('/login')
+        
     return (
         <>
             <section>
@@ -34,20 +40,6 @@ function FormRegister() {
                             <p class="subtitle is-5 has-text-centered">Your notes on the cloud</p>
                             <form onSubmit={handleSubmit} action="">
                                 <div className="column is-12" >
-                                    <div class="field">
-                                        <label class="label" for="name">Name</label>
-                                        <div class="control">
-                                            <input id="name" 
-                                            name="name" 
-                                            class="input" 
-                                            type="text" 
-                                            placeholder="Jonh Doe"
-                                            required
-                                            value={name}
-                                            onChange={e => setName(e.target.value)} />
-                                        </div>
-                                    </div>
-
                                     <div class="field">
                                         <label class="label" for="email" >Email</label>
                                         <div class="control">
@@ -73,16 +65,16 @@ function FormRegister() {
                                              value={password}
                                              onChange={e => setPassword(e.target.value)} />
                                         </div>
-                                        {error && <p class="help is-danger">This email is already in use</p> }
+                                        {error && <p class="help is-danger">This email or password is invalid</p> }
                                     </div>
 
                                     <div class="field">
                                         <div class="columns ">
                                             <div class="column has-text-centered">
-                                                <a onClick={e => setRedirectToLogin(true)} class="button is-white has-text-primary">Login or</a>
+                                                <a onClick={() => setRedirectToRegister(true)} class="button is-white has-text-primary">Register or</a>
                                             </div>
                                             <div class="column has-text-centered ">
-                                                <button className="button is-primary is-outlined">Register</button>
+                                                <button className="button is-primary is-outlined">Login</button>
                                             </div>
                                         </div>
                                     </div>
@@ -103,4 +95,4 @@ function FormRegister() {
 
 }
 
-export default FormRegister;
+export default FormLogin;

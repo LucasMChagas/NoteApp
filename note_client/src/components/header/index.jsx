@@ -38,7 +38,7 @@ function Header() {
                             <Link to="/register" className="button is-white has-text-primary">
                                 <strong>Register</strong>
                             </Link>
-                            <a className="button is-primary is-outlined">Login</a>
+                            <Link to="/login" className="button is-primary is-outlined">Login</Link>
                         </div>
                     </div>
                 </div>
