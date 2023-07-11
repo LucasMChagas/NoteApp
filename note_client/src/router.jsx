@@ -1,12 +1,15 @@
-import {  createBrowserRouter } from "react-router-dom";
+import {createBrowserRouter } from "react-router-dom";
 import Home from "../src/screens/home";
 import Register from "../src/screens/auth/register";
 import Login from "../src/screens/auth/login"
 import Notes from "../src/screens/notes";
-const router = createBrowserRouter([
+import PrivateRoute from "./screens/auth/private_route";
+
+
+const router = createBrowserRouter([         
     {
-      path: "/",
-      element: <Home/>,
+        path: "/",
+        element: <Home/>,
     },
     {
       path: "/register",
@@ -18,8 +21,8 @@ const router = createBrowserRouter([
     },
     {
       path: "/notes",
-      element: <Notes/>,
-    }
+      element: <PrivateRoute> <Notes/> </PrivateRoute>      
+    }  
   ]);
 
 export default router;
