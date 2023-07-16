@@ -1,0 +1,27 @@
+@import "./custom_colors";
+
+.notes-container{
+ height: calc(100% - 49px);
+ margin-left: 0px;
+ margin-top: 0px;
+ margin-top: 0px;
+ background-color: aquamarine;
+}
+
+.bm-menu{
+    background-color: white;
+    padding-top: 0%;    
+}
+.search{
+    background-color: white;
+}
+.notes-item-list{
+    border:  1px solid transparent;
+    padding: 5%;
+    background-color: #f3f3f3;
+    cursor: pointer;    
+}
+
+.notes-item-list-colorB{
+    background-color: #d0cfcf;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../../components/header";
-import "../../../styles/login.scss"
+import "../../../styles/form.scss"
 import FormLogin from "../../../components/form-login";
 
 function LoginScreen(){

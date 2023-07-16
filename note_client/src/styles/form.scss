@@ -1,11 +1,11 @@
 @import "./custom_colors";
 
-.home{
+.card{    
+    padding: 3%;
+}
+.form-content{    
     background-color: $custom-purple;
     height: calc(100% - 61px);
-}
-.home-content{
-    padding-top: 10%;
-    // border: 1px solid red;
+    padding: 8% 15% 0% 15%;
 }
 

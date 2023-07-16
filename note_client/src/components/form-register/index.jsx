@@ -26,8 +26,8 @@ function FormRegister() {
         return navigate('/login')
     return (
         <>
-            <section>
-                <div class="container">
+            <section class="form-content">
+                <div class="container ">
                     <div class="columns is-centered ">
                         <div class="card">
                             <img src={logoImage} alt="logo" />
@@ -79,10 +79,10 @@ function FormRegister() {
                                     <div class="field">
                                         <div class="columns ">
                                             <div class="column has-text-centered">
-                                                <a onClick={e => setRedirectToLogin(true)} class="button is-white has-text-primary">Login or</a>
+                                                <a onClick={e => setRedirectToLogin(true)} class="button is-white has-text-custom-purple">Login or</a>
                                             </div>
                                             <div class="column has-text-centered ">
-                                                <button className="button is-primary is-outlined">Register</button>
+                                                <button className="button is-custom-purple is-outlined">Register</button>
                                             </div>
                                         </div>
                                     </div>

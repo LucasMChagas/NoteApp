@@ -32,7 +32,7 @@ function FormLogin() {
         
     return (
         <>
-            <section>
+            <section class="form-content">
                 <div class="container">
                     <div class="columns is-centered ">
                         <div class="card">
@@ -71,10 +71,10 @@ function FormLogin() {
                                     <div class="field">
                                         <div class="columns ">
                                             <div class="column has-text-centered">
-                                                <a onClick={() => setRedirectToRegister(true)} class="button is-white has-text-primary">Register or</a>
+                                                <a onClick={() => setRedirectToRegister(true)} class="button is-white has-text-custom-purple">Register or</a>
                                             </div>
                                             <div class="column has-text-centered ">
-                                                <button className="button is-primary is-outlined">Login</button>
+                                                <button className="button is-custom-purple is-outlined">Login</button>
                                             </div>
                                         </div>
                                     </div>

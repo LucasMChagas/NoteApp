@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import 'bulma/css/bulma.css';
+import "../../styles/header.scss";
 import logoImage from '../../assets/images/logo.png';
 import { Link } from "react-router-dom";
-import "../../styles/header.scss";
 
 function Header() {
     const [menuAberto, setMenuAberto] = useState(false);
@@ -35,10 +34,10 @@ function Header() {
                 <div className="navbar-end">
                     <div className="navbar-item">
                         <div className="buttons">
-                            <Link to="/register" className="button is-white has-text-primary">
+                            <Link to="/register" className="button is-white has-text-custom-purple">
                                 <strong>Register</strong>
                             </Link>
-                            <Link to="/login" className="button is-primary is-outlined">Login</Link>
+                            <Link to="/login" className="button is-custom-purple is-outlined">Login</Link>
                         </div>
                     </div>
                 </div>

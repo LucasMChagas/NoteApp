@@ -3,12 +3,11 @@
 @import "./styles/custom_colors.scss";
 
 $custom-colors: (
-  "custom-purple": ($custom-purple),
-  "custom-purple-darker": ($custom-purple-darker)
+ "custom-purple": ($custom-purple),
+ "custom-purple-darker": ($custom-purple-darker),
+ "custom-gray":($custom-gray)
 );
 
-$primary: $custom-purple;
-$link: $custom-purple-darker;
 
 // Import Bulma styles
 @import "../node_modules/bulma/bulma.sass";
