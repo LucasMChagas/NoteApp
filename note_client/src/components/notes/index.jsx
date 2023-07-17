@@ -15,11 +15,23 @@ const Notes = (props) => {
             setNotes(response.data.reverse());
             setCurrent_note(response.data[0]);
            
+        }else{
+            setNotes([]);
         }
     }
     useEffect(() => {
         fetchNotes();
     }, []);
+
+    const createNote = async () =>{
+        await NotesServices.create();
+        fetchNotes();
+    }
+
+    const deleteNotes = async (id)=>{
+        await NotesServices.delete(id);
+        fetchNotes();
+    }
 
     const selectNote = (id) => {
         const note = notes.find((note) => {
@@ -27,6 +39,7 @@ const Notes = (props) => {
         })              
         setCurrent_note(note);       
     }
+
 
 
 
@@ -50,7 +63,9 @@ const Notes = (props) => {
                 <div className="conatiner">
                     <NotesList notes={notes}
                         selectNote={selectNote}
-                        current_note={current_note} />
+                        current_note={current_note}
+                        createNote={createNote}
+                        deleteNotes={deleteNotes} />
                 </div>
 
             </Menu>
