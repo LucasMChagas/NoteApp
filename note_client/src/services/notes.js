@@ -16,6 +16,12 @@ const NotesServices = {
         await api.delete(`/notes/${id}`,{
             headers:{'x-access-token': localStorage.getItem('token')} 
         })
-    }
+    },
+    update: async (id, params)=>{
+        const response = await api.put(`/notes/${id}`, params, {
+            headers:{'x-access-token': localStorage.getItem('token')} 
+        });
+        return response;
+    },
 }
 export default NotesServices;

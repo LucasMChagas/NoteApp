@@ -3,6 +3,7 @@ import { push as Menu } from 'react-burger-menu'
 import "../../styles/notes.scss"
 import NotesServices from "../../services/notes";
 import NotesList from "../notes-list"
+import Editor from "../notes-editor";
 
 const Notes = (props) => {
     const [notes, setNotes] = useState([]);
@@ -14,8 +15,8 @@ const Notes = (props) => {
         if (response.data.length >= 1) {
             setNotes(response.data.reverse());
             setCurrent_note(response.data[0]);
-           
-        }else{
+
+        } else {
             setNotes([]);
         }
     }
@@ -23,21 +24,29 @@ const Notes = (props) => {
         fetchNotes();
     }, []);
 
-    const createNote = async () =>{
+    const createNote = async () => {
         await NotesServices.create();
         fetchNotes();
     }
 
-    const deleteNotes = async (id)=>{
+    const deleteNotes = async (id) => {
         await NotesServices.delete(id);
         fetchNotes();
+    }
+    const updateNote = async (oldNote, params) => {
+        const updatedNote = await NotesServices.update(oldNote._id, params);
+        const index = notes.indexOf(oldNote);
+        const newNotes = notes;
+        newNotes[index] = updatedNote.data;
+        setNotes(newNotes);
+        setCurrent_note(updatedNote.data);
     }
 
     const selectNote = (id) => {
         const note = notes.find((note) => {
             return note._id == id;
-        })              
-        setCurrent_note(note);       
+        })
+        setCurrent_note(note);
     }
 
 
@@ -69,11 +78,15 @@ const Notes = (props) => {
                 </div>
 
             </Menu>
-            <div className="notes-container" id="notes-container">
-                <div class="columns notes" id="columns notes">
-                    <div className="column notes-editor">Lucas</div>
-                    <div className="column notes-editor">Lucas</div>
-                </div>
+            <div className="notes-container notes-editor" id="notes-container">
+
+                <Editor
+                    note={current_note}
+                    updateNote={updateNote}
+                >
+
+                </Editor>
+
             </div>
 
         </>

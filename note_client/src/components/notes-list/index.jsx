@@ -36,6 +36,7 @@ function ListNotes(props) {
                     </div>
                 )}
             </ul>
+           <br /><br />
         </>
     )
 }

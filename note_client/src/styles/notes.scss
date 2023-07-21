@@ -1,27 +1,44 @@
 @import "./custom_colors";
 
-.notes-container{
- height: calc(100% - 49px);
- margin-left: 0px;
- margin-top: 0px;
- margin-top: 0px;
- background-color: aquamarine;
+.notes-container {
+    height: calc(100% - 49px);
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-top: 0px;
+    background-color: transparent;
 }
 
-.bm-menu{
+.bm-menu {
     background-color: white;
-    padding-top: 0%;    
+    padding-top: 0%;
+
 }
-.search{
+
+.search {
     background-color: white;
 }
-.notes-item-list{
-    border:  1px solid transparent;
+
+.notes-item-list {
+    border: 1px solid transparent;
     padding: 5%;
     background-color: #f3f3f3;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
-.notes-item-list-colorB{
+.notes-item-list-colorB {
     background-color: #d0cfcf;
 }
+
+.notes-editor {
+    padding: 0%;
+    height: calc(100% - 61px);
+    // border: 2px solid black;
+    .quill {
+        height: 95%;
+        width:  100%;
+        background-color: transparent;
+    }    
+}
+
+    
+
