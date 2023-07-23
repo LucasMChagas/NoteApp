@@ -7,8 +7,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faAngleDown, faList} from '@fortawesome/free-solid-svg-icons'
 
 function HeaderLogged(props) {
+    let User = localStorage.getItem('user')
     const [menuAberto, setMenuAberto] = useState(false);
-    const [dropDownShow, setDropDownShow] = useState(false)
+    const [dropDownShow, setDropDownShow] = useState(false);
+    const [user, setUser] = useState(JSON.parse(User))
+
+    
+    
+
+    console.log(user)
 
     const toggleMenu = () => {
         setMenuAberto(!menuAberto);        
@@ -50,7 +57,7 @@ function HeaderLogged(props) {
                         onClick={toggleDropDown}>
                             <div class="dropdown-trigger ">
                                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                    <span>Lucas Miranda das chagas</span>
+                                    <span>{user.name}</span>
                                     <span class="icon is-small">
                                         <FontAwesomeIcon icon={faAngleDown} style={{color: "#000000",}} />
                                     </span>

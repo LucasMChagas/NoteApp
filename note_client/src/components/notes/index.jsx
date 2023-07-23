@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { push as Menu } from 'react-burger-menu'
-import "../../styles/notes.scss"
+import { push as Menu } from 'react-burger-menu';
+import "../../styles/notes.scss";
 import NotesServices from "../../services/notes";
-import NotesList from "../notes-list"
+import NotesList from "../notes-list";
 import Editor from "../notes-editor";
+import Search from '../notes-search';
 
 const Notes = (props) => {
     const [notes, setNotes] = useState([]);
@@ -41,6 +42,10 @@ const Notes = (props) => {
         setNotes(newNotes);
         setCurrent_note(updatedNote.data);
     }
+    const searchNotes = async (query) => {
+        const response = await NotesServices.search(query);
+        setNotes(response.data)
+    }
 
     const selectNote = (id) => {
         const note = notes.find((note) => {
@@ -65,8 +70,7 @@ const Notes = (props) => {
 
                 <div className="container search">
                     <div class="columns notes" id="columns notes">
-                        <div className="column notes-editor">Search</div>
-
+                        <Search searchNotes={searchNotes} fetchNotes={fetchNotes} />
                     </div>
                 </div>
                 <div className="conatiner">

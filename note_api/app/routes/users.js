@@ -1,7 +1,9 @@
 const express = require('express');
 let router = express.Router();
 const User = require('../models/user');
+const Note = require('../models/note');
 const  jwt = require('jsonwebtoken');
+const WithAuth = require('../middlewares/auth');
 require('dotenv').config();
 const secret = process.env.JWT_TOKEN;
 
@@ -39,8 +41,19 @@ router.post('/login', async function(req, res){
             })
         }
     }catch(error){
-        res.status(500).json({error: 'Internal error, please try again'+ error});
+        
     }
+});
+
+router.delete('/delete', WithAuth, async function(req,res){
+    const user = req.user;
+    if (!user) {
+        res.status(500).json({error: "user doesn't exist!"});        
+    } else {    
+        const notas = await Note.deleteMany({ author: user._id });
+        await User.findByIdAndDelete(user._id);
+        res.status(200).json({message: "account deleted successfully!" + notas.deletedCount + "notes deleted"});        
+    }    
 })
 
 

@@ -23,5 +23,8 @@ const NotesServices = {
         });
         return response;
     },
+    search: (query) => api.get(`/notes/search?query=${query}`, {
+        headers: {'x-access-token': localStorage.getItem('token')}
+       }),
 }
 export default NotesServices;

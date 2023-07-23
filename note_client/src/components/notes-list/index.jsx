@@ -8,10 +8,10 @@ function ListNotes(props) {
         <>
             <div className="columns">
                 <div className="column is-6">
-                    <p className="title is-4">{props.notes.length} Notes</p>
+                    <p className="title is-4 notes-title">{props.notes.length} Notes</p>
                 </div>
                 <div className="column is-6">
-                    <button className="button is-custom-purple is-outlined is-small" onClick={()=> props.createNote()}>Criar nota</button>
+                    <button className="button is-custom-purple is-outlined is-small create-note-button" onClick={()=> props.createNote()}>Criar nota</button>
                 </div>
             </div>
             <ul className="notes-list">
