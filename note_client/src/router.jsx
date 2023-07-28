@@ -3,6 +3,7 @@ import Home from "../src/screens/home";
 import Register from "../src/screens/auth/register";
 import Login from "../src/screens/auth/login"
 import Notes from "../src/screens/notes-screen/index";
+import UserEdit from "../src/screens/auth/user_edit"
 import PrivateRoute from "./screens/auth/private_route";
 
 const router = createBrowserRouter([         
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
     {
         path: "/notes",
       element: <PrivateRoute><Notes/></PrivateRoute>,            
+    },
+    {
+      path: "/user_edit",
+      element: <PrivateRoute><UserEdit/></PrivateRoute>
     }  
   ]);
 

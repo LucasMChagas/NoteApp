@@ -11,9 +11,8 @@ const WithAuth = (req, res, next)=>{
         jwt.verify(token, secret, (err, decoded)=>{
             if(err){
                 res.status(401).json({error: 'Unauthorized: token invalid'});
-            }else{
-                req.email = decoded.email;
-                User.findOne({email: decoded.email}).then(user=>{req.user = user;next()})
+            }else{                
+                User.findOne({_id: decoded.id}).then(user=>{req.user = user;next()})
                 .catch(err =>{res.status(401).json({error:err})});
             }
         })

@@ -29,8 +29,7 @@ function ListNotes(props) {
                                 <span className="tag has-background-black has-text-white">{Moment(item.created_at).format('DD/MM')}</span>
                             </div>
                             <div className="column is-2">
-                                <FontAwesomeIcon className="" icon={faTrash} style={{color: "#000000",}} onClick={() =>props.deleteNotes(item._id)} />
-                                 
+                                <FontAwesomeIcon className="" icon={faTrash} style={{color: "#000000",}} onClick={() =>props.deleteNotes(item._id)} />                                 
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../../styles/header.scss"
 import UsersService from "../../services/users";
 import logoImage from '../../assets/images/logo-white.png';
@@ -8,14 +9,13 @@ import {faAngleDown, faList} from '@fortawesome/free-solid-svg-icons'
 
 function HeaderLogged(props) {
     let User = localStorage.getItem('user')
+    const location = useLocation();
+    const navigate = useNavigate();
     const [menuAberto, setMenuAberto] = useState(false);
     const [dropDownShow, setDropDownShow] = useState(false);
     const [user, setUser] = useState(JSON.parse(User))
 
-    
-    
-
-    console.log(user)
+    const rotasComBotaoVisivel = ['/user_edit'];    
 
     const toggleMenu = () => {
         setMenuAberto(!menuAberto);        
@@ -28,12 +28,14 @@ function HeaderLogged(props) {
     return (
         <nav className={`navbar has-background-custom-purple`} role="navigation" aria-label="main navigation" >
             <div className="navbar-brand">
-                <Link className="navbar-item" to='/'>
+                <Link className="navbar-item" to='/notes'>
                     <img src={logoImage} alt="Logo" />
                 </Link>
                 <div className="navbar-start" >
                     <div className="navbar-item">
-                        <button  class="button is-white is-outlined purple-hover"  onClick={() => props.setOpenMenu(!props.openMenu)}><FontAwesomeIcon icon={faList}></FontAwesomeIcon></button>
+                        {!rotasComBotaoVisivel.includes(location.pathname) && (
+                        <button  class="button is-white is-outlined purple-hover"  onClick={() => props.setOpenMenu(!props.openMenu)}>
+                        <FontAwesomeIcon icon={faList}></FontAwesomeIcon></button>)}                        
                     </div>
                 </div>
                 <a
@@ -65,7 +67,7 @@ function HeaderLogged(props) {
                             </div>
                             <div class="dropdown-menu" id="dropdown-menu" role="menu">
                                 <div class="dropdown-content">
-                                    <a href="#" class="dropdown-item">
+                                    <a onClick={()=>navigate('/user_edit')} href="#" class="dropdown-item">
                                         Users edit
                                     </a>                                    
                                     <hr class="dropdown-divider"/>

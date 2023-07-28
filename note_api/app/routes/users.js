@@ -22,27 +22,26 @@ router.post('/register', async(req, res)=>{
 });
 
 router.post('/login', async function(req, res){
-    const {email, password } = req.body;
-    
-    let user = await User.findOne({ email });     
-
-    try{        
+    try{
+        const {email, password } = req.body;
+        let user = await User.findOne({ email });               
         if(!user){
             res.status(401).json({error: 'Incorrect email or password'});
         }
         else{
+            let id = user._id.toString() 
             user.isCorrectPassword(password, function(err, same){
                 if(!same){
                     res.status(401).json({error: 'Incorrect email or password'});
                 }
                 else{
-                    const token = jwt.sign({email}, secret, {expiresIn: '10d'});
+                    const token = jwt.sign({id: id}, secret, {expiresIn: '10d'});
                     res.json({user: user, token: token});
                 }
             })
         }
     }catch(error){
-       
+       res.json({erro: error})
     }
 });
 
@@ -83,7 +82,7 @@ router.put('/update/password', WithAuth, async(req, res)=>{
                                 { $set: {password: hashedPassword}},
                                 {upsert: true , 'new': true } 
                                 );
-                            res.status(200).json({message: 'successfully updated password'});
+                            res.status(200).json(await User.findById(user._id));
                         }
                     })                     
                 }
