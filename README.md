@@ -40,6 +40,3 @@ Bem-vindo ao JavascriptNotes! Uma aplicação que permite a criação e gerencia
 - Email: lucas_miranda_chagas@hotmail.com
 - GitHub: [LucasMChagas](https://github.com/LucasMChagas)
 
-## Licença
-
-Este projeto está licenciado sob a [MIT](https://opensource.org/license/mit/).
