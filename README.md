@@ -23,7 +23,7 @@ Bem-vindo ao JavascriptNotes! Uma aplicação que permite a criação e gerencia
 ## Tecnologias Utilizadas
 
 - Framework: React
-- Banco de Dados: MongoDB com ORM Mongoose
+- Banco de Dados: MongoDB com Mongoose
 - Roteamento: react-router-dom
 - Estilização: Bulma, Sass
 - Requisições HTTP: Axios
